@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Diet Plan</title>
+</head>
+<body>
+<h1>Create Diet Plan</h1>
+<form th:action="@{/diet-plans/create}" method="post" th:object="${dietPlanDTO}">
+
+    <div>
+        <label for="mealType">Meal Type</label>
+        <select th:field="*{mealType}" id="mealType">
+            <option value="BREAKFAST">Breakfast</option>
+            <option value="LUNCH">Lunch</option>
+            <option value="DINNER">Dinner</option>
+            <option value="SNACK">Snack</option>
+        </select>
+    </div>
+    <div>
+        <label for="dietDate">Diet Date</label>
+        <input type="date" th:field="*{dietDate}" id="dietDate"/>
+    </div>
+    <div>
+        <label for="userId">User ID</label>
+        <select th:field="*{userId}" id="userId">
+            <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+        </select>
+    </div>
+    <div>
+        <label for="foodItemIds">Food Items</label>
+        <select multiple th:field="*{foodItemIds}" id="foodItemIds">
+            <option th:each="item : ${foodItems}" th:value="${item.id}" th:text="${item.name}"></option>
+        </select>
+    </div>
+    <button type="submit">Create Diet Plan</button>
+</form>
+</body>
+</html>
+
