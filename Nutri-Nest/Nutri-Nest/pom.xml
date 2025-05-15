@@ -108,6 +108,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>nutri-nest</finalName>
 	</build>
 
 </project>
