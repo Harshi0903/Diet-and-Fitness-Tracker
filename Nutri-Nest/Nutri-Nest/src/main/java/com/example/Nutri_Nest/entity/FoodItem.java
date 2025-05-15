@@ -4,10 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+
 public class FoodItem {
 
     @Id
@@ -21,5 +24,18 @@ public class FoodItem {
     private Double protein;
     private Double fat;
     private Double fiber;
+
+    public FoodItem(Long id, String foodName, Double calories, Double protein, Double fat, Double fiber) {
+        this.id = id;
+        this.foodName = foodName;
+        this.calories = calories;
+        this.protein = protein;
+        this.fat = fat;
+        this.fiber = fiber;
+    }
+
+    public FoodItem(){
+
+    }
 
 }
